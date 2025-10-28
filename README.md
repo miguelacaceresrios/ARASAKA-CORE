@@ -47,23 +47,25 @@ El sistema coordina los proyectos activos, registra tareas, mantiene puntajes gl
 ## 4. Arquitectura del Proyecto
 
 ```bash
-src/
-├─ commands/
-│ ├─ alert.js # Enviar mensajes a canales globales
-│ ├─ registrar.js # Crear nuevas tareas
-│ ├─ tareas.js # Consultar tareas por estado
-│ ├─ completar.js # Marcar tareas finalizadas
-│ ├─ help.js # Panel de ayuda general
-│ └─ ping.js # Prueba de conexión
+arasaka-core-bot/
+├─ src/
+│  ├─ index.js
+│  ├─ deploy-commands.js
+│  ├─ commands/
+│  │   ├─ ping.js
+│  │   ├─ help.js
+│  │   ├─ alert.js
+│  │   ├─ registrar.js
+│  │   ├─ tareas.js
+│  │   └─ completar.js
+│  ├─ utils/
+│  │   └─ jsonHandler.js
+│  └─ data/
+│      ├─ tareas.json
+│      ├─ proyectos.json
+│      └─ ranking.json
 │
-├─ utils/
-│ ├─ jsonHandler.js # Manejo seguro de archivos JSON
-│ └─ notify.js # Sistema de alertas internas
-│
-├─ data/
-│ ├─ tareas.json
-│ ├─ proyectos.json
-│ └─ ranking.json
-│
-├─ index.js # Núcleo principal del bot
-└─ deploy-commands.js # Registro de comandos con Discord API
+├─ .env
+├─ package.json
+├─ README.md
+└─ LICENSE
