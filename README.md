@@ -47,33 +47,23 @@ El sistema coordina los proyectos activos, registra tareas, mantiene puntajes gl
 ## 4. Arquitectura del Proyecto
 
 ```bash
-📦 isometrical-network/
-├─ 🧠 arasaka-core/
-│  ├─ src/
-│  │  ├─ api/
-│  │  │  ├─ server.js          # Servidor principal (Express)
-│  │  │  └─ routes.js          # Endpoints REST
-│  │  ├─ db/
-│  │  │  ├─ arasaka.db         # Base de datos SQLite
-│  │  │  └─ schema.sql         # Definición de tablas
-│  │  ├─ logic/
-│  │  │  ├─ tasks.js           # Lógica de tareas y XP
-│  │  │  ├─ ranking.js         # Cálculo de puntuaciones
-│  │  │  └─ projects.js        # Gestión de proyectos
-│  │  └─ core.js               # Inicialización del sistema
-│  ├─ .env.example
-│  └─ README.md
+src/
+├─ commands/
+│ ├─ alert.js # Enviar mensajes a canales globales
+│ ├─ registrar.js # Crear nuevas tareas
+│ ├─ tareas.js # Consultar tareas por estado
+│ ├─ completar.js # Marcar tareas finalizadas
+│ ├─ help.js # Panel de ayuda general
+│ └─ ping.js # Prueba de conexión
 │
-├─ 🤖 bots/
-│  ├─ hatsune-bot/             # Bot personalizado de usuario
-│  │  ├─ src/bot.js
-│  │  ├─ .env
-│  │  └─ profile.json
-│  ├─ reisen-bot/
-│  └─ luka-bot/
+├─ utils/
+│ ├─ jsonHandler.js # Manejo seguro de archivos JSON
+│ └─ notify.js # Sistema de alertas internas
 │
-└─ docs/
-   ├─ architecture.md
-   ├─ api_reference.md
-   ├─ changelog.md
-   └─ internal_policies.md
+├─ data/
+│ ├─ tareas.json
+│ ├─ proyectos.json
+│ └─ ranking.json
+│
+├─ index.js # Núcleo principal del bot
+└─ deploy-commands.js # Registro de comandos con Discord API
